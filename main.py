@@ -1,16 +1,29 @@
-# This is a sample Python script.
+from flask import Flask, render_template,request
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+app = Flask(__name__)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+@app.route("/")
+def main():
+    posty = [
+        {
+            'dat_loc': {'date': '05.01.2019', 'location': 'Gdańsk'},
+            'body': 'Tekst1'
+        },
+        {
+            'dat_loc': {'date': '12.01.2019', 'location': 'Gdańsk'},
+            'body': 'Tekst2'
+        },
+        {
+            'dat_loc': {'date': '13.01.2019', 'location': 'Frombork'},
+            'body': 'Tekst3'
+        }
+    ]
+    return render_template('index.html', tytul='Artykuły', posty=posty)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+
+
+
+if __name__ == "__main__":
+    app.run()
