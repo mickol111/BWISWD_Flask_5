@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set()
 
+import plotly.figure_factory as ff
+import plotly.express as px
+
 pd.set_option('display.max_columns', None)
 
 from sklearn.preprocessing import StandardScaler
@@ -68,3 +71,11 @@ y_pred = knn.predict(X_test)
 print("Accuracy on the test set:", round(accuracy_score(y_test, y_pred), 3))
 
 print(classification_report(y_test, y_pred))
+
+#scikitplot.metrics.plot_confusion_matrix(y_test, y_pred, figsize=(6,6), cmap= 'YlGnBu')
+#df = px.data.medals_wide(indexed=True)  # replace with your own data source
+cols = ['y_test', 'y_pred']
+df = pd.DataFrame([y_test, y_pred],
+                   columns=cols)
+fig = px.imshow(df[cols])
+fig.show()
