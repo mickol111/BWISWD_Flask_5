@@ -16,6 +16,7 @@
     </head>
 
   <body>
+
     <nav class="site-header sticky-top py-1">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
 
@@ -25,18 +26,30 @@
     <main role="main" class="container">
 
       <div class="starter-template">
-		{% if tytul %}
-		<h1>{{tytul}}</h1>
+		{% if tytul1 %}
+		<h1>{{tytul1}}</h1>
 		{% else %}
-		<h1>Strona główna</h1>
+		<h1>Tabela 1</h1>
 		{% endif %}
-		<p class="lead">{{tresc}}</p>
-
-          {% for post in posty %}
-        <div><p><b>{{ post.dat_loc.date }}</b> :{{ post.body }}</p></div>
-        {% endfor %}
+        {{ table1 | safe }}
       </div>
-
+        <div id="chart" class='chart'></div>
+      <div class="starter-template">
+		{% if tytul2 %}
+		<h1>{{tytul2}}</h1>
+		{% else %}
+		<h1>Tabela 2</h1>
+		{% endif %}
+        {{ table2 | safe }}
+      </div>
+      <div class="starter-template">
+		{% if tytul3 %}
+		<h1>{{tytul3}}</h1>
+		{% else %}
+		<h1>Tabela 3</h1>
+		{% endif %}
+        {{ table3 | safe }}
+      </div>
     </main><!-- /.container -->
 
     <!-- Optional JavaScript -->
@@ -45,4 +58,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<script type='text/javascript'>
+var graphs = {{graphJSON | safe}};
+Plotly.plot('chart',graphs,{});
+</script>
 </html>
