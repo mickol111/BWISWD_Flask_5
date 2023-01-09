@@ -4,11 +4,15 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="false" level="WARNING" enabled_by_default="false">
       <option name="ignoredPackages">
         <value>
+<<<<<<< HEAD
           <list size="3">
             <item index="0" class="java.lang.String" itemvalue="python-socketio" />
             <item index="1" class="java.lang.String" itemvalue="python-engineio" />
             <item index="2" class="java.lang.String" itemvalue="Flask-SocketIO" />
           </list>
+=======
+          <list size="0" />
+>>>>>>> origin/master
         </value>
       </option>
     </inspection_tool>
